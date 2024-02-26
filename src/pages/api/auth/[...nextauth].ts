@@ -33,6 +33,9 @@ export const authOptions: NextAuthOptions = {
       session.user.id = Number(token.sub);
       return session;
     },
+    redirect: (params: { url: string; baseUrl: string }) => {
+      return params.baseUrl; // Перенаправление на главную страницу
+    },
   },
 };
 
