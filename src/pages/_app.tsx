@@ -3,14 +3,18 @@ import { trpc } from "@/shared/api";
 import { SessionProvider, getSession } from "next-auth/react";
 
 import "@/app/global.css";
+import Navbar from "@/entities/navbar/navbar";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="mx-auto max-w-4xl">
+    <>
       <SessionProvider session={pageProps.session}>
-        <Component {...pageProps} />
+        <Navbar />
+        <div className="mx-auto max-w-4xl">
+          <Component {...pageProps} />
+        </div>
       </SessionProvider>
-    </div>
+    </>
   );
 }
 
